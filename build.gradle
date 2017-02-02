@@ -46,10 +46,15 @@ task buildDocker(type: Docker, dependsOn: build) {
 
 repositories {
     jcenter()
+    mavenCentral()
+    maven {
+    	url "http://splunk.artifactoryonline.com/splunk/ext-releases-local"
+    }
 }
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+    compile("com.splunk.logging:splunk-library-javalogging:1.5.0")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }
 
